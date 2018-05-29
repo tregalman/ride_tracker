@@ -8,14 +8,18 @@ import org.springframework.stereotype.Service;
 import com.pluralsight.model.Ride;
 import com.pluralsight.repository.RideRepository;
 
-@Service("rideService")
+@Service
 public class RideServiceImpl implements RideService {
 
-	@Autowired
-	private RideRepository rideRepository;
-	
-	@Override
-	public List<Ride> getRides() {
-		return rideRepository.getRides();
-	}
+  @Autowired
+  private RideRepository rideRepository;
+
+  public RideServiceImpl(RideRepository rideRepository) {
+    this.rideRepository = rideRepository;
+  }
+
+  @Override
+  public List<Ride> getRides() {
+    return rideRepository.getRides();
+  }
 }
