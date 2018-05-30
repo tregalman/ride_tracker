@@ -20,16 +20,16 @@ public class RideServiceImpl implements RideService {
 
   @Override
   public List<Ride> getRides() {
-    return rideRepository.getRides();
+    return rideRepository.findAll();
   }
 
   @Override
   public Ride create(Ride ride) {
-    return rideRepository.createRide(ride);
+    return rideRepository.create(ride);
   }
 
   @Override
   public Ride getRide(int id) {
-    return rideRepository.getRide(id);
+    return rideRepository.findById(id);
   }
 }
