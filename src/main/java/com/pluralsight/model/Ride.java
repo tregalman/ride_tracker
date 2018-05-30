@@ -1,5 +1,8 @@
 package com.pluralsight.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(using = RideDeserializer.class)
 public class Ride {
 
   private int id;

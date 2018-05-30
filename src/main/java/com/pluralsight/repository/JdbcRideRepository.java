@@ -33,10 +33,11 @@ public class JdbcRideRepository implements RideRepository {
       preparedStatement.setInt(2, ride.getDuration());
       return preparedStatement;
     }, keyHolder);
-    return getRide(keyHolder.getKey());
+    return getRide((Integer) keyHolder.getKey());
   }
 
-  private Ride getRide(Number id) {
+  @Override
+  public Ride getRide(int id) {
     return jdbcTemplate
         .queryForObject("SELECT ID, NAME, DURATION FROM RIDE WHERE ID = ?", new RideRowMapper(),
             id);
